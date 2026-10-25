@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Painel da TV</title>
+<style>
+:root{--bg:#F5F5F7;--tile:#FFFFFF;--text:#1D1D1F;--muted:#6E6E73;--accent:#0071E3;--on-accent:#FFFFFF;--shadow:0 2px 12px rgba(0,0,0,.08)}
+@media (prefers-color-scheme: dark){:root{--bg:#000000;--tile:#1C1C1E;--text:#F5F5F7;--muted:#A1A1A6;--accent:#0A84FF;--on-accent:#000000;--shadow:none}}
+*{box-sizing:border-box}
+html{height:100%}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:-apple-system,"SF Pro Display","Helvetica Neue",system-ui,"Segoe UI",Roboto,Arial,sans-serif;padding:5vw 6vw}
+header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;gap:16px;flex-wrap:wrap}
+h1{margin:0;font-size:clamp(32px,4.4vw,56px);font-weight:600;letter-spacing:-.02em}
+.date{color:var(--muted);font-size:clamp(16px,1.6vw,22px);margin-top:8px}
+.date::first-letter{text-transform:uppercase}
+.clock{font-size:clamp(40px,6.4vw,80px);font-weight:300;letter-spacing:-.03em}
+h2{font-size:clamp(18px,1.8vw,24px);margin:36px 0 16px;font-weight:600;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+a.tile{display:flex;align-items:center;gap:20px;min-height:112px;padding:20px 24px;background:var(--tile);color:var(--text);text-decoration:none;border-radius:28px;font-size:clamp(20px,2vw,26px);font-weight:600;box-shadow:var(--shadow);border:3px solid transparent;transition:transform .15s}
+a.tile .ic{flex:none;width:64px;height:64px;border-radius:16px;background:var(--accent);color:var(--on-accent);display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:600}
+a.tile:hover,a.tile:focus{outline:none;border-color:var(
