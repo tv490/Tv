@@ -1,22 +1,44 @@
 <!doctype html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Painel da TV</title>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Painel da TV</title>
 <style>
-:root{--bg:#F5F5F7;--tile:#FFFFFF;--text:#1D1D1F;--muted:#6E6E73;--accent:#0071E3;--on-accent:#FFFFFF;--shadow:0 2px 12px rgba(0,0,0,.08)}
-@media (prefers-color-scheme: dark){:root{--bg:#000000;--tile:#1C1C1E;--text:#F5F5F7;--muted:#A1A1A6;--accent:#0A84FF;--on-accent:#000000;--shadow:none}}
-*{box-sizing:border-box}
-html{height:100%}
-body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:-apple-system,"SF Pro Display","Helvetica Neue",system-ui,"Segoe UI",Roboto,Arial,sans-serif;padding:5vw 6vw}
-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;gap:16px;flex-wrap:wrap}
-h1{margin:0;font-size:clamp(32px,4.4vw,56px);font-weight:600;letter-spacing:-.02em}
-.date{color:var(--muted);font-size:clamp(16px,1.6vw,22px);margin-top:8px}
-.date::first-letter{text-transform:uppercase}
-.clock{font-size:clamp(40px,6.4vw,80px);font-weight:300;letter-spacing:-.03em}
-h2{font-size:clamp(18px,1.8vw,24px);margin:36px 0 16px;font-weight:600;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
-a.tile{display:flex;align-items:center;gap:20px;min-height:112px;padding:20px 24px;background:var(--tile);color:var(--text);text-decoration:none;border-radius:28px;font-size:clamp(20px,2vw,26px);font-weight:600;box-shadow:var(--shadow);border:3px solid transparent;transition:transform .15s}
-a.tile .ic{flex:none;width:64px;height:64px;border-radius:16px;background:var(--accent);color:var(--on-accent);display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:600}
-a.tile:hover,a.tile:focus{outline:none;border-color:var(
+:root{--bg:#F5F5F7;--tile:#fff;--text:#1D1D1F;--muted:#6E6E73;--accent:#0071E3;--on:#fff}
+@media(prefers-color-scheme:dark){:root{--bg:#000;--tile:#1C1C1E;--text:#F5F5F7;--muted:#A1A1A6;--accent:#0A84FF;--on:#000}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,"Helvetica Neue",system-ui,sans-serif;padding:5vw 6vw}
+header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px}
+h1{margin:0;font-size:48px;font-weight:600}
+h2{font-size:22px;color:var(--muted);margin:32px 0 16px}
+#hora{font-size:72px;font-weight:300}
+#data{color:var(--muted);font-size:20px;margin-top:6px}
+#data::first-letter{text-transform:uppercase}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+a{display:flex;align-items:center;gap:20px;min-height:112px;padding:20px 24px;background:var(--tile);color:var(--text);text-decoration:none;border-radius:28px;font-size:24px;font-weight:600;border:3px solid transparent}
+a:hover,a:focus{border-color:var(--accent);outline:none}
+a b{width:64px;height:64px;border-radius:16px;background:var(--accent);color:var(--on);display:flex;align-items:center;justify-content:center;font-size:30px}
+</style></head>
+<body>
+<header><div><h1 id="s">Olá</h1><div id="data"></div></div><div id="hora"></div></header>
+<h2>Vídeo</h2>
+<div class="g">
+<a href="https://www.youtube.com/tv"><b>Y</b>YouTube</a>
+<a href="https://www.netflix.com/"><b>N</b>Netflix</a>
+<a href="https://www.primevideo.com/"><b>P</b>Prime Video</a>
+<a href="https://globoplay.globo.com/"><b>G</b>Globoplay</a>
+<a href="https://www.disneyplus.com/"><b>D</b>Disney+</a>
+</div>
+<h2>Outros</h2>
+<div class="g">
+<a href="https://music.youtube.com/"><b>M</b>YouTube Music</a>
+<a href="https://open.spotify.com/"><b>S</b>Spotify</a>
+<a href="https://g1.globo.com/"><b>G</b>Notícias</a>
+<a href="https://www.google.com/"><b>B</b>Buscar</a>
+</div>
+<p style="color:var(--muted);margin-top:48px">Para trocar de entrada (HDMI), use o botão Source do controle.</p>
+<script>
+function t(){var n=new Date(),h=n.getHours(),m=n.getMinutes();
+document.getElementById('hora').textContent=('0'+h).slice(-2)+':'+('0'+m).slice(-2);
+document.getElementById('data').textContent=n.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'});
+document.getElementById('s').textContent=h<12?'Bom dia':h<18?'Boa tarde':'Boa noite';}
+t();setInterval(t,30000);
+</script>
+</body></html>
+
